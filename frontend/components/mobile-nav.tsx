@@ -2,13 +2,21 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Home, Wallet, Shield, User } from 'lucide-react'
+import { Home, Wallet, Shield, User, History, HelpCircle } from 'lucide-react'
 
-const MOBILE_NAV_ITEMS = [
+const DASHBOARD_MOBILE_NAV_ITEMS = [
   { icon: Home, label: 'Home', href: '/dashboard' },
   { icon: Wallet, label: 'Vault', href: '/dashboard/vault' },
   { icon: Shield, label: 'Security', href: '/dashboard/security' },
   { icon: User, label: 'Profile', href: '/dashboard/profile' },
+]
+
+const ADMIN_MOBILE_NAV_ITEMS = [
+  { icon: Home, label: 'Overview', href: '/admin' },
+  { icon: Wallet, label: 'Vaults', href: '/admin/vaults' },
+  { icon: History, label: 'Transfers', href: '/admin/transactions' },
+  { icon: Shield, label: 'Security', href: '/admin/security' },
+  { icon: HelpCircle, label: 'Support', href: '/admin/support' },
 ]
 
 export function MobileNav() {
@@ -19,12 +27,17 @@ export function MobileNav() {
     return null
   }
 
+  const navItems = pathname.startsWith('/admin')
+    ? ADMIN_MOBILE_NAV_ITEMS
+    : DASHBOARD_MOBILE_NAV_ITEMS
+
   return (
     <nav className="md:hidden fixed bottom-0 left-0 w-full bg-[#000000]/95 backdrop-blur-md flex justify-around items-center px-4 py-3 pb-safe z-50 border-t border-[#384869]/20 shadow-[0px_-4px_20px_rgba(0,0,0,0.4)]">
-      {MOBILE_NAV_ITEMS.map((item) => {
+      {navItems.map((item) => {
         const Icon = item.icon
-        // Exact match for dashboard routing
-        const isActive = pathname === item.href || (item.href !== '/dashboard' && pathname.startsWith(item.href))
+        const isActive = item.href === '/dashboard' || item.href === '/admin'
+          ? pathname === item.href
+          : pathname.startsWith(item.href)
         
         return (
           <Link
