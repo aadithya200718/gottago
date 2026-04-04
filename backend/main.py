@@ -25,6 +25,16 @@ app.include_router(triggers.router, prefix="/api/v1/triggers", tags=["triggers"]
 app.include_router(admin.router, prefix="/api/v1/admin", tags=["admin"])
 
 
+@app.get("/")
+async def root():
+    return {
+        "status": "ok",
+        "service": "gottago-api",
+        "health": "/health",
+        "docs": "/docs",
+    }
+
+
 @app.get("/health")
 async def health():
     return {"status": "ok", "service": "gottago-api"}

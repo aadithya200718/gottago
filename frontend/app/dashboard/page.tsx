@@ -88,25 +88,23 @@ function DashboardContent() {
     }
 
     try {
-      const API = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'
-
-      const workerRes = await fetch(`${API}/api/v1/workers/${workerId}`)
+      const workerRes = await fetch(`/api/v1/workers/${workerId}`)
       if (!workerRes.ok) throw new Error('Worker not found')
       const workerData = await workerRes.json() as Worker
       setWorker(workerData)
 
-      const policyRes = await fetch(`${API}/api/v1/policies/${workerId}`)
+      const policyRes = await fetch(`/api/v1/policies/${workerId}`)
       if (policyRes.ok) {
         const policyData = await policyRes.json() as Policy
         setPolicy(policyData)
       }
 
-      const breakdownRes = await fetch(`${API}/api/v1/premiums/${workerId}/breakdown`)
+      const breakdownRes = await fetch(`/api/v1/premiums/${workerId}/breakdown`)
       if (breakdownRes.ok) {
         setBreakdown(await breakdownRes.json())
       }
 
-      const claimsRes = await fetch(`${API}/api/v1/claims/${workerId}`)
+      const claimsRes = await fetch(`/api/v1/claims/${workerId}`)
       if (claimsRes.ok) {
         setClaims(await claimsRes.json() as object[])
       }
@@ -124,8 +122,7 @@ function DashboardContent() {
   const handleRenew = async (policyId: string) => {
     setRenewLoading(true)
     try {
-      const API = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'
-      await fetch(`${API}/api/v1/policies/${policyId}/renew`, { method: 'POST' })
+      await fetch(`/api/v1/policies/${policyId}/renew`, { method: 'POST' })
       fetchData()
     } finally {
       setRenewLoading(false)
@@ -133,14 +130,12 @@ function DashboardContent() {
   }
 
   const handlePause = async (policyId: string) => {
-    const API = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'
-    await fetch(`${API}/api/v1/policies/${policyId}/pause`, { method: 'POST' })
+    await fetch(`/api/v1/policies/${policyId}/pause`, { method: 'POST' })
     fetchData()
   }
 
   const handleResume = async (policyId: string) => {
-    const API = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'
-    await fetch(`${API}/api/v1/policies/${policyId}/resume`, { method: 'POST' })
+    await fetch(`/api/v1/policies/${policyId}/resume`, { method: 'POST' })
     fetchData()
   }
 
