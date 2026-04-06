@@ -1,0 +1,265 @@
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 10 15 26;
+    --foreground: 249 250 251;
+    --card: 17 24 39;
+    --card-foreground: 249 250 251;
+    --primary: 56 189 248;
+    --primary-foreground: 255 255 255;
+    --muted: 107 114 128;
+    --muted-foreground: 156 163 175;
+    --border: 31 41 55;
+    --radius-card: 12px;
+    --radius-button: 8px;
+    --radius-input: 6px;
+  }
+
+  * {
+    border-color: rgb(var(--border));
+  }
+
+  body {
+    @apply bg-surface text-text-primary font-sans;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background: rgba(56, 189, 248, 0.25);
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #0a0f1a;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #1f2937;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #38bdf8;
+  }
+}
+
+@layer components {
+  .card-glass {
+    @apply bg-surface-card/90 border border-surface-border rounded-card
+           shadow-card transition-all duration-200;
+  }
+
+  .accent-text {
+    @apply text-brand-primary font-bold;
+  }
+
+  .status-active {
+    @apply text-status-success bg-status-success-bg border border-status-success/30
+           px-3 py-1 rounded-full text-xs font-semibold;
+  }
+
+  .status-paused {
+    @apply text-status-warning bg-status-warning-bg border border-status-warning/30
+           px-3 py-1 rounded-full text-xs font-semibold;
+  }
+
+  .status-expired {
+    @apply text-status-danger bg-status-danger-bg border border-status-danger/30
+           px-3 py-1 rounded-full text-xs font-semibold;
+  }
+
+  .policy-number {
+    @apply font-mono text-brand-primary tracking-wider;
+  }
+
+  .trigger-alert {
+    @apply animate-pulse-glow border border-brand-primary/40 bg-brand-primary-glow;
+  }
+
+  .progress-bar {
+    @apply h-2 rounded-full overflow-hidden bg-surface;
+  }
+
+  .progress-bar-fill {
+    @apply h-full rounded-full transition-all duration-700;
+  }
+
+  .skeleton {
+    @apply bg-surface-card animate-pulse rounded-md;
+  }
+
+  .touch-target {
+    @apply min-h-12 min-w-12;
+  }
+
+  .claim-card {
+    @apply card-glass p-4 my-2 relative overflow-hidden;
+  }
+
+  .claim-card::before {
+    content: '';
+    @apply absolute left-0 top-0 bottom-0 w-1;
+  }
+
+  .claim-card.paid::before {
+    @apply bg-status-success;
+  }
+
+  .claim-card.pending::before {
+    @apply bg-status-warning;
+  }
+
+  .claim-card.flagged::before {
+    @apply bg-status-danger;
+  }
+
+  .traffic-light {
+    @apply w-4 h-4 rounded-full;
+  }
+
+  .traffic-light.green {
+    @apply bg-status-success shadow-glow-green;
+  }
+
+  .traffic-light.amber {
+    @apply bg-status-warning;
+  }
+
+  .traffic-light.red {
+    @apply bg-status-danger shadow-glow-red;
+  }
+
+  /* Alert banner for trigger warnings */
+  .alert-banner {
+    @apply flex items-center gap-3 px-4 py-3 rounded-xl border text-sm;
+  }
+
+  .alert-banner-warning {
+    @apply alert-banner bg-status-warning/10 border-status-warning/30 text-status-warning;
+  }
+
+  .alert-banner-danger {
+    @apply alert-banner bg-status-danger/10 border-status-danger/30 text-status-danger;
+  }
+
+  .alert-banner-info {
+    @apply alert-banner bg-brand-primary/10 border-brand-primary/30 text-brand-primary;
+  }
+
+  /* Admin stat card */
+  .stat-card {
+    @apply bg-surface-card border border-surface-border rounded-xl p-4 flex items-center gap-3;
+  }
+
+  /* Activity log table rows */
+  .activity-row {
+    @apply border-b border-surface-border/50 text-xs;
+  }
+
+  .activity-row td {
+    @apply py-3 px-4;
+  }
+
+  .activity-row:hover {
+    @apply bg-surface-card/60;
+  }
+
+  /* Admin sidebar nav item */
+  .sidebar-item {
+    @apply flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium
+           transition-colors cursor-pointer;
+  }
+
+  .sidebar-item-active {
+    @apply sidebar-item bg-brand-primary text-white;
+  }
+
+  .sidebar-item-inactive {
+    @apply sidebar-item text-text-secondary hover:text-text-primary hover:bg-surface-card;
+  }
+
+  /* Custom range slider */
+  input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    @apply w-full h-2 rounded-full bg-surface-card cursor-pointer;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    @apply w-5 h-5 rounded-full bg-brand-primary border-2 border-brand-primary
+           shadow-glow-sky cursor-pointer;
+  }
+
+  input[type="range"]::-moz-range-thumb {
+    @apply w-5 h-5 rounded-full bg-brand-primary border-2 border-brand-primary
+           shadow-glow-sky cursor-pointer;
+    border: none;
+  }
+
+  input[type="range"]::-webkit-slider-runnable-track {
+    @apply h-2 rounded-full bg-surface-card;
+  }
+
+  input[type="range"]::-moz-range-track {
+    @apply h-2 rounded-full bg-surface-card;
+  }
+}
+
+@layer utilities {
+  .noise {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  }
+}
+
+/* Leaflet dark-mode overrides */
+.leaflet-popup-content-wrapper {
+  background: #0f172a;
+  color: #e2e8f0;
+  border: 1px solid #1e293b;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+.leaflet-popup-tip {
+  background: #0f172a;
+  border: 1px solid #1e293b;
+}
+
+.leaflet-popup-close-button {
+  color: #94a3b8 !important;
+}
+
+.leaflet-popup-close-button:hover {
+  color: #38bdf8 !important;
+}
+
+.leaflet-control-zoom a {
+  background: #1e293b !important;
+  color: #e2e8f0 !important;
+  border-color: #334155 !important;
+}
+
+.leaflet-control-zoom a:hover {
+  background: #334155 !important;
+}
+
+.leaflet-control-attribution {
+  background: rgba(15, 23, 42, 0.8) !important;
+  color: #64748b !important;
+  font-size: 9px !important;
+}
+
+.leaflet-control-attribution a {
+  color: #38bdf8 !important;
+}

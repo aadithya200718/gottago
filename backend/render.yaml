@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: gottago-api
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_KEY
+        sync: false
+      - key: OPENWEATHERMAP_API_KEY
+        sync: false
+      - key: WAQI_TOKEN
+        sync: false
+      - key: RAZORPAY_KEY_ID
+        sync: false
+      - key: RAZORPAY_KEY_SECRET
+        sync: false
+      - key: GUIDEWIRE_ENV
+        value: mock
+      - key: GUIDEWIRE_BASE_URL
+        sync: false
+      - key: GUIDEWIRE_AUTH_TOKEN
+        sync: false
