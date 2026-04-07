@@ -13,6 +13,14 @@ class Settings(BaseSettings):
     guidewire_base_url: str = ""
     guidewire_auth_token: str = ""
 
+    # Zero-cost verification layer keys
+    msg91_api_key: str = ""
+    opencellid_api_key: str = ""
+    wigle_api_key: str = ""
+
+    # Multi-sig admin secrets (HMAC-SHA256)
+    admin_hmac_secret: str = ""
+
     class Config:
         env_file = ".env"
         case_sensitive = False
