@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import {
   LayoutDashboard,
@@ -24,9 +25,12 @@ export function MainSidebar() {
 
   return (
     <aside className="hidden md:flex flex-col h-screen w-64 fixed left-0 top-0 bg-[#000000] border-r border-[#384869]/20 p-4 z-50">
-      <div className="mb-10 px-4 mt-2">
-        <h1 className="text-lg font-black text-[#7bd0ff]">GottaGO</h1>
-        <p className="text-[10px] tracking-widest text-[#9babd2] font-mono opacity-60">SOVEREIGN VAULT</p>
+      <div className="mb-10 px-4 mt-2 flex items-center gap-3">
+        <Image src="/logo.png" alt="GottaGO" width={36} height={36} className="h-9 w-9 rounded-lg object-contain" />
+        <div>
+          <h1 className="text-lg font-black text-[#7bd0ff]">GottaGO</h1>
+          <p className="text-[10px] tracking-widest text-[#9babd2] font-mono opacity-60">SOVEREIGN VAULT</p>
+        </div>
       </div>
       
       <nav className="flex-1 space-y-2">

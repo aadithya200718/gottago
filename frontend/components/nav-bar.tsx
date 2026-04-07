@@ -2,9 +2,10 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Shield, Menu, X } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 const NAV_LINKS = [
@@ -24,7 +25,7 @@ export function NavBar() {
         <div className="flex items-center justify-between h-14">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <Shield className="h-5 w-5 text-brand-primary" />
+            <Image src="/logo.png" alt="GottaGO" width={32} height={32} className="h-8 w-8 rounded-lg object-contain" />
             <span className="font-bold font-mono text-text-primary text-lg">GottaGO</span>
           </Link>
 
