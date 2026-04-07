@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from routers import workers, policies, premiums, claims, triggers, admin
+from routers import verification
 
 app = FastAPI(
     title="GottaGO API",
@@ -23,6 +24,7 @@ app.include_router(premiums.router, prefix="/api/v1/premiums", tags=["premiums"]
 app.include_router(claims.router, prefix="/api/v1/claims", tags=["claims"])
 app.include_router(triggers.router, prefix="/api/v1/triggers", tags=["triggers"])
 app.include_router(admin.router, prefix="/api/v1/admin", tags=["admin"])
+app.include_router(verification.router, prefix="/api/v1/verification", tags=["verification"])
 
 
 @app.get("/")
