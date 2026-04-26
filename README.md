@@ -111,7 +111,7 @@ Saying "no one does this today" is not a moat. Here are three structural reasons
 
 Every payout GottaGO makes creates a labelled training record: the specific trigger event, GPS coordinates, trigger duration, actual income loss verified against zone peer order-completion rates, and claim outcome (approved, flagged, or rejected). After six months of operation with 10,000 active workers, GottaGO holds the most accurate zone-level income-loss-versus-disruption dataset in India. No public dataset provides this correlation. A competitor starting today begins with zero labelled records and must operate for six or more months to accumulate comparable data. GottaGO's XGBoost premium model and Disruption Score engine improve with every weekly refit. The accuracy gap between GottaGO and a new entrant widens over time, it does not narrow.
 
-### 3.2 Worker Lock-In via Personalised Pricing
+## 3.2 Worker Lock-In via Personalised Pricing
 
 Workers with 12 or more weeks of claims history in GottaGO receive the most personalised premium, reflecting their actual zone risk exposure and individual claim frequency. Claim-free workers accumulate a cumulative discount (5% at week 12, increasing with continued clean history) that resets to zero if they switch to a competitor. A worker paying ₹97/week after 20 weeks of history would restart at ₹159/week with a new provider. The longer a worker stays, the cheaper their premium becomes. This is a structural retention mechanism that money alone cannot replicate.
 
