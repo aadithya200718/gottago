@@ -52,7 +52,7 @@ Swiggy provides Rajan with basic accidental injury coverage of ₹2 lakh through
 
 GottaGO exists to fill that gap. It covers income loss only from external disruptions: weather, pollution, and social disruptions such as government-imposed curfews. It strictly excludes health, life, accidents, and vehicle repairs. Those risks are already addressed by existing products. The income gap is not.
 
-### Scenario A: Mumbai Monsoon
+# Scenario A: Mumbai Monsoon
 
 **Arjun, 24, Zomato partner, Dharavi zone, Mumbai.**
 
