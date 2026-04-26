@@ -103,7 +103,7 @@ GottaGO operates within a regulatory framework that actively encourages this pro
 
 ---
 
-## 3. Competitive Moat
+# 3. Competitive Moat
 
 Saying "no one does this today" is not a moat. Here are three structural reasons why Acko or Digit cannot replicate GottaGO within six months, even with unlimited budget.
 
