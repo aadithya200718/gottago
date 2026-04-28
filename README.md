@@ -1,5 +1,5 @@
 <div align="center">
-.
+
 # GottaGO
 
 ### GottaGO: Weekly Income Protection for Food Delivery Partners
