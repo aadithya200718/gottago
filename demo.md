@@ -63,7 +63,6 @@ ADMIN_HMAC_SECRET=your-secure-random-string
 ```
 
 ### Start Services
-
 ```bash
 # Terminal 1: Backend
 cd backend
